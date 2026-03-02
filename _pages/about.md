@@ -7,9 +7,9 @@ redirect_from:
   - /about.html
 ---
 
-I am a third-year undergraduate student majoring in Computer Science at [Xi'an Jiaotong University](http://en.xjtu.edu.cn/) (XJTU). I recently completed an exchange program at [UC Berkeley](https://www.berkeley.edu/) through the Berkeley Global Access (BGA) program, taking courses in AI, systems, and programming languages with a 4.0/4.0 GPA.
+I am a third-year undergraduate student majoring in Computer Science at [Xi'an Jiaotong University](http://en.xjtu.edu.cn/) (XJTU). I recently completed an exchange program at [UC Berkeley](https://www.berkeley.edu/) through the Berkeley Global Access (BGA) program in Spring 2025.
 
-Currently, I am a research intern at [Princeton AI2 Lab](https://ai.princeton.edu/), working on autonomous agents and GUI visual grounding. I am also collaborating with researchers at [Peking University](https://www.pku.edu.cn/) and the Beijing Innovation Center of Humanoid Robotics on world models for embodied agents.
+Currently, I am a research intern at [Princeton AI2 Lab](https://ai.princeton.edu/), proudly supervised by Postdoc [Shilong Liu](https://www.lsl.zone/) & Prof. [Mengdi Wang](https://mwang.princeton.edu/), working on autonomous agents and GUI visual grounding. I am also collaborating with researchers at [Peking University](https://www.pku.edu.cn/) and the [Beijing Innovation Center of Humanoid Robotics](https://www.x-humanoid.com/) on world models for embodied agents.
 
 ## Research Interests
 
