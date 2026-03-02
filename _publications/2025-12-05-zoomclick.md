@@ -7,10 +7,13 @@ excerpt: 'A training-free method that leverages zooming as a powerful prior for 
 date: 2025-12-05
 venue: 'arXiv preprint (under review)'
 paperurl: 'https://arxiv.org/abs/2512.05941'
+header:
+  teaser: "zoomclick_small.png"
 citation: '<b>Zhiyuan Jiang</b>, Shenghao Xie, Wenyi Li, Wenqiang Zu, Peihang Li, Jiahao Qiu, Siqi Pei, Lei Ma, Tiejun Huang, Mengdi Wang, Shilong Liu. (2025). &quot;Zoom in, Click out: Unlocking and Evaluating the Potential of Zooming for GUI Grounding.&quot; <i>arXiv preprint arXiv:2512.05941</i>.'
+first_author: true
 ---
 
-<img src="/images/zoomclick_small.png" alt="ZoomClick Method Overview" style="max-width:100%; margin-bottom:20px;">
+<img src="/images/zoomclick.png" alt="ZoomClick Method Overview" style="max-width:100%; margin-bottom:20px;">
 
 ## Overview
 

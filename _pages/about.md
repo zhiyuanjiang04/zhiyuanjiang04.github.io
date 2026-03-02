@@ -29,6 +29,65 @@ I am passionate about developing AI systems that bridge the gap between passive 
 - **Sep 2025**: Started research internship at Princeton AI2 Lab
 - **Jan 2025**: Began exchange semester at UC Berkeley
 
+## Selected Publications
+
+<style>
+.sel-pub {
+  display: flex;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 6px;
+}
+.sel-pub-img {
+  width: 120px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+.sel-pub-img img {
+  width: 100%;
+  border-radius: 4px;
+}
+.sel-pub-text {
+  flex-grow: 1;
+}
+.sel-pub-text h4 {
+  margin: 0 0 5px 0;
+  font-size: 0.95em;
+}
+.sel-pub-text p {
+  margin: 0;
+  font-size: 0.85em;
+  color: #666;
+}
+</style>
+
+<div class="sel-pub">
+  <div class="sel-pub-img"><a href="/publication/2025-12-05-zoomclick"><img src="/images/zoomclick_small.png"></a></div>
+  <div class="sel-pub-text">
+    <h4><a href="/publication/2025-12-05-zoomclick">ZoomClick: Unlocking and Evaluating the Potential of Zooming for GUI Grounding</a></h4>
+    <p><b>Zhiyuan Jiang</b>, et al. | arXiv 2025 | <a href="https://arxiv.org/abs/2512.05941">Paper</a> | <a href="https://github.com/Princeton-AI2-Lab/ZoomClick">Code</a></p>
+  </div>
+</div>
+
+<div class="sel-pub">
+  <div class="sel-pub-img"><a href="/publication/2025-09-26-wow"><img src="/images/wow_small.png"></a></div>
+  <div class="sel-pub-text">
+    <h4><a href="/publication/2025-09-26-wow">WoW: Towards a World omniscient World model Through Embodied Interaction</a></h4>
+    <p>Xiaowei Chi*, ..., <b>Zhiyuan Jiang</b>, et al. | arXiv 2025 | <a href="https://arxiv.org/abs/2509.22642">Paper</a> | <a href="https://wow-world-model.github.io">Project</a></p>
+  </div>
+</div>
+
+<div class="sel-pub">
+  <div class="sel-pub-img"><a href="/publication/2026-01-07-wowval"><img src="/images/wowval_small.png"></a></div>
+  <div class="sel-pub-text">
+    <h4><a href="/publication/2026-01-07-wowval">Wow, wo, val! A Comprehensive Embodied World Model Evaluation Turing Test</a></h4>
+    <p>Chun-Kai Fan*, ..., <b>Zhiyuan Jiang</b>, et al. | arXiv 2026 | <a href="https://arxiv.org/abs/2601.04137">Paper</a></p>
+  </div>
+</div>
+
+[View all publications →](/publications/)
+
 ## Ongoing Projects
 
 **Autonomous Skill Learning for LLM Agents** (Feb 2026 - Present)

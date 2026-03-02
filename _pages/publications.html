@@ -5,32 +5,80 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
+<style>
+.pub-item {
+  display: flex;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #eee;
+}
+.pub-teaser {
+  flex-shrink: 0;
+  width: 180px;
+  margin-right: 20px;
+}
+.pub-teaser img {
+  width: 100%;
+  border-radius: 4px;
+}
+.pub-content {
+  flex-grow: 1;
+}
+.pub-content h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+.pub-venue {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 8px;
+}
+.pub-excerpt {
+  color: #444;
+  font-size: 0.95em;
+}
+</style>
 
+<h2>Preprints</h2>
+<hr />
 
+{% assign first_author_pubs = site.publications | where: "first_author", true | sort: "date" | reverse %}
+{% assign other_pubs = site.publications | where: "first_author", false | sort: "date" | reverse %}
 
+{% for post in first_author_pubs %}
+<div class="pub-item">
+  {% if post.header.teaser %}
+  <div class="pub-teaser">
+    <a href="{{ base_path }}{{ post.url }}">
+      <img src="{{ base_path }}/images/{{ post.header.teaser }}" alt="{{ post.title }}">
+    </a>
+  </div>
+  {% endif %}
+  <div class="pub-content">
+    <h3><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
+    <div class="pub-venue">{{ post.venue }}, {{ post.date | date: "%Y" }}</div>
+    <p class="pub-excerpt">{{ post.excerpt }}</p>
+    <p><a href="{{ post.paperurl }}">Paper</a></p>
+  </div>
+</div>
+{% endfor %}
+
+{% for post in other_pubs %}
+<div class="pub-item">
+  {% if post.header.teaser %}
+  <div class="pub-teaser">
+    <a href="{{ base_path }}{{ post.url }}">
+      <img src="{{ base_path }}/images/{{ post.header.teaser }}" alt="{{ post.title }}">
+    </a>
+  </div>
+  {% endif %}
+  <div class="pub-content">
+    <h3><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
+    <div class="pub-venue">{{ post.venue }}, {{ post.date | date: "%Y" }}</div>
+    <p class="pub-excerpt">{{ post.excerpt }}</p>
+    <p><a href="{{ post.paperurl }}">Paper</a></p>
+  </div>
+</div>
+{% endfor %}
