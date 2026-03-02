@@ -10,7 +10,7 @@ paperurl: 'https://arxiv.org/abs/2512.05941'
 citation: 'Jiang, Z., Xie, S., Li, W., Zu, W., Li, P., Qiu, J., Pei, S., Ma, L., Huang, T., Wang, M., & Liu, S. (2025). &quot;Zoom in, Click out: Unlocking and Evaluating the Potential of Zooming for GUI Grounding.&quot; <i>arXiv preprint arXiv:2512.05941</i>.'
 ---
 
-<img src="/images/zoomclick.png" alt="ZoomClick Method Overview" style="width:100%; margin-bottom:20px;">
+<img src="/images/zoomclick_small.png" alt="ZoomClick Method Overview" style="max-width:100%; margin-bottom:20px;">
 
 ## Overview
 
