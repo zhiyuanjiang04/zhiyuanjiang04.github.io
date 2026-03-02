@@ -7,23 +7,25 @@ redirect_from:
   - /about.html
 ---
 
-I am a third-year undergraduate student majoring in Computer Science at [Xi'an Jiaotong University](http://en.xjtu.edu.cn/) (XJTU). I recently completed an exchange program at [UC Berkeley](https://www.berkeley.edu/) through the Berkeley Global Access (BGA) program with a 4.0/4.0 GPA.
+I am a third-year undergraduate student majoring in Computer Science at [Xi'an Jiaotong University](http://en.xjtu.edu.cn/) (XJTU), where I rank in the top 5% of my class. I recently completed an exchange program at [UC Berkeley](https://www.berkeley.edu/) through the Berkeley Global Access (BGA) program, taking courses in AI, systems, and programming languages with a 4.0/4.0 GPA.
 
-Currently, I am a research intern at [Princeton AI2 Lab](https://ai.princeton.edu/), focusing on LLM-based autonomous agents and GUI visual grounding.
+Currently, I am a research intern at [Princeton AI2 Lab](https://ai.princeton.edu/), working on autonomous agents and GUI visual grounding. I am also collaborating with researchers at [Peking University](https://www.pku.edu.cn/) and the Beijing Innovation Center of Humanoid Robotics on world models for embodied agents.
 
 ## Research Interests
 
-My research interests lie at the intersection of **Large Language Models**, **Autonomous Agents**, and **Embodied AI**:
+I am broadly interested in building **intelligent agents** that can autonomously learn, reason, and act in complex environments. My current research focuses on:
 
-- 🤖 **LLM Agents**: Self-evolving agents with cross-domain skill transfer
-- 🌍 **World Models**: Scalable world models for embodied agent planning and decision-making
-- 🖥️ **GUI Grounding**: Visual grounding for autonomous GUI interaction
-- 🧠 **Compositional Generalization**: Learning compositional prototypes from limited data
+- 🤖 **Autonomous Agents**: Self-evolving agents that learn transferable skills across diverse domains (terminal, web, structured data)
+- 🌍 **World Models**: Scalable world models that enable embodied agents to plan and make decisions through imagination
+- 🖥️ **GUI Agents**: Visual grounding methods for autonomous interaction with graphical user interfaces
+- 🧠 **Compositional Generalization**: Learning reusable prototypes from limited data for generalization to unseen scenarios
+
+I am passionate about developing AI systems that bridge the gap between passive observation and active interaction with the physical world.
 
 ## News
 
-- **Dec 2025**: Paper [*ZoomClick*](https://arxiv.org/abs/2512.05941) released - training-free GUI grounding via zooming
-- **Sep 2025**: Paper [*WoW*](https://arxiv.org/abs/2509.22642) released - 14B world model for embodied AI
+- **Dec 2025**: Paper [*ZoomClick*](https://arxiv.org/abs/2512.05941) released — training-free GUI grounding via dynamic zooming
+- **Sep 2025**: Paper [*WoW*](https://arxiv.org/abs/2509.22642) released — 14B world model trained on 2M robot trajectories  
 - **Sep 2025**: Started research internship at Princeton AI2 Lab
 - **Jan 2025**: Began exchange semester at UC Berkeley
 
@@ -33,10 +35,10 @@ My research interests lie at the intersection of **Large Language Models**, **Au
 - Building self-evolving agent framework with transferable skills across terminal, web, and structured data environments
 
 **Compositional Generalization of World Models** (May 2025 - Present)  
-- Designing prototype-tree-based framework for extracting & reusing atomic features
+- Designing prototype-tree-based framework for extracting & reusing atomic features for zero-shot generalization
 
 **Automated AI-Researcher Agent** (Jan 2026 - Present)
-- Developing autonomous system for trend-aware research idea generation
+- Developing autonomous system for trend-aware research idea generation and manuscript writing
 
 [View all projects →](/projects/)
 
