@@ -9,56 +9,44 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+## Education
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* **Xi'an Jiaotong University**, B.S. in Computer Science (Sep 2023 - Jun 2027 Expected)
+  * GPA: 4.0/4.3 (Top 5%), Average Score: 91.32
+  * TOEFL IBT: 106/120
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* **UC Berkeley**, Berkeley Global Access (Jan 2025 - May 2025)
+  * GPA: 4.0/4.0
+  * Courses: Introduction to Artificial Intelligence, SICP, Computer Architecture
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+## Research Experience
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* **Princeton AI2 Lab, Princeton University** (Sep 2025 - Present)
+  * Research Intern
+  * Focus: LLM-based autonomous agents, GUI visual grounding
+  * Conducted survey on LLM-based autonomous agents; leading research on self-evolving agents with cross-domain skill transfer
+
+* **Peking University & Beijing Innovation Center of Humanoid Robotics** (Dec 2024 - Present)
+  * Research Collaborator
+  * Focus: World models for embodied agents
+  * Collaborated on WoW world model framework; contributing to experiment implementation and cross-team coordination
+
+## Publications
+
+<ul>{% for post in site.publications reversed %}
+  {% include archive-single-cv.html %}
+{% endfor %}</ul>
+
+## Technical Skills
+
+* **Languages**: Python, C/C++, Java, SQL, HTML/CSS
+* **ML/AI**: PyTorch, Transformers, NumPy, Pandas
+* **Tools**: Git, Docker, VS Code, Claude Code, Cursor
+
+## Ongoing Projects
+
+* **Autonomous Skill Learning for LLM Agents** (Feb 2026 - Present)
+  * Building self-evolving agent framework with transferable skills across terminal, web, and structured data environments
+
+* **Compositional Generalization of World Models** (May 2025 - Present)
+  * Designing prototype-tree-based framework for extracting & reusing atomic features from training data

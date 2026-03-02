@@ -20,30 +20,31 @@ My research interests lie at the intersection of **Large Language Models**, **Au
 - 🖥️ **GUI Grounding**: Visual grounding for autonomous GUI interaction
 - 🧠 **Compositional Generalization**: Learning compositional prototypes from limited data
 
-## Education
-
-- **Xi'an Jiaotong University** (Sep 2023 - Present)  
-  B.S. in Computer Science | GPA: 4.0/4.3 (Top 5%) | TOEFL: 106
-
-- **UC Berkeley** (Jan 2025 - May 2025)  
-  Berkeley Global Access | GPA: 4.0/4.0  
-  Courses: Intro to AI, SICP, Computer Architecture
-
-## Research Experience
-
-**Princeton AI2 Lab, Princeton University** (Sep 2025 - Present)
-- Conducted comprehensive survey on LLM-based autonomous agents
-- Leading ongoing research on self-evolving agents with cross-domain skill transfer
-- Contributing to GUI visual grounding research (paper under review)
-
-**Peking University & Beijing Innovation Center of Humanoid Robotics** (Dec 2024 - Present)
-- Collaborated on WoW, a world model framework for autonomous agents
-- Co-leading research on scalable world models for embodied agent planning
-- Contributing to experiment implementation and cross-team coordination
-
 ## News
 
-- **Feb 2026**: Paper *ZoomClick* submitted to arXiv - exploring zooming for GUI grounding
-- **Jan 2026**: Paper *WoW-Eval* submitted - comprehensive embodied world model benchmark
-- **Sep 2025**: Started research internship at Princeton AI2 Lab!
+- **Dec 2025**: Paper [*ZoomClick*](https://arxiv.org/abs/2512.05941) released - training-free GUI grounding via zooming
+- **Sep 2025**: Paper [*WoW*](https://arxiv.org/abs/2509.22642) released - 14B world model for embodied AI
+- **Sep 2025**: Started research internship at Princeton AI2 Lab
 - **Jan 2025**: Began exchange semester at UC Berkeley
+
+## Ongoing Projects
+
+**Autonomous Skill Learning for LLM Agents** (Feb 2026 - Present)
+- Building self-evolving agent framework with transferable skills across terminal, web, and structured data environments
+
+**Compositional Generalization of World Models** (May 2025 - Present)  
+- Designing prototype-tree-based framework for extracting & reusing atomic features
+
+**Automated AI-Researcher Agent** (Jan 2026 - Present)
+- Developing autonomous system for trend-aware research idea generation
+
+[View all projects →](/projects/)
+
+## Education
+
+| | |
+|---|---|
+| **Xi'an Jiaotong University** | B.S. in Computer Science, Sep 2023 - Present |
+| | GPA: 4.0/4.3 (Top 5%), TOEFL: 106 |
+| **UC Berkeley** | Berkeley Global Access, Jan 2025 - May 2025 |
+| | GPA: 4.0/4.0 |
