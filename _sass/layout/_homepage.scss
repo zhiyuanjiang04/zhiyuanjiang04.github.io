@@ -60,13 +60,32 @@
 .homepage-profile {
   min-width: 0;
 
+  &__avatar {
+    position: relative;
+    width: 176px;
+    height: 176px;
+    margin: 0 0 1.25rem;
+  }
+
   &__photo {
     display: block;
     width: 176px;
     height: 176px;
-    margin: 0 0 1.25rem;
+    margin: 0;
     border-radius: 50%;
     object-fit: cover;
+  }
+
+  &__pet {
+    display: none;
+    position: absolute;
+    top: -0.7rem;
+    right: -0.55rem;
+    width: 4.5rem;
+    height: 4.875rem;
+    object-fit: contain;
+    pointer-events: none;
+    transform-origin: 50% 90%;
   }
 
   &__name {
@@ -126,6 +145,22 @@
       outline: 2px solid var(--global-link-color);
       outline-offset: 3px;
     }
+  }
+}
+
+html[data-theme="dark"] .homepage-profile__pet {
+  display: block;
+  animation: homepage-pet-idle 3.8s ease-in-out infinite;
+}
+
+@keyframes homepage-pet-idle {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-0.15rem) rotate(2deg);
   }
 }
 
@@ -193,6 +228,17 @@
 
     p + p {
       margin-top: 1.15rem;
+    }
+
+    .homepage-about-goals {
+      margin: 1.15rem 0 0;
+      padding-left: 1.35rem;
+      font-size: 1rem;
+      line-height: 1.7;
+
+      li {
+        margin-bottom: 0.4rem;
+      }
     }
   }
 
@@ -331,6 +377,13 @@
     &__photo {
       width: 144px;
       height: 144px;
+    }
+
+    &__pet {
+      top: -0.55rem;
+      right: -0.45rem;
+      width: 4rem;
+      height: 4.35rem;
     }
   }
 

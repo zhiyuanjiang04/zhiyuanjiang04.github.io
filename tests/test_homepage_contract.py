@@ -12,6 +12,7 @@ HOMEPAGE_LAYOUT = ROOT / "_layouts" / "homepage.html"
 PUBLICATIONS_PAGE = ROOT / "_pages" / "publications.html"
 PROJECTS_PAGE = ROOT / "_pages" / "projects.md"
 HOMEPAGE_STYLES = ROOT / "_sass" / "layout" / "_homepage.scss"
+CODEX_PET_ASSET = ROOT / "images" / "codex-pet-idle.webp"
 
 
 class HomepageContractTest(unittest.TestCase):
@@ -105,8 +106,11 @@ class HomepageContractTest(unittest.TestCase):
             'href="http://en.xjtu.edu.cn/">Xi\'an Jiaotong University</a>',
             "representation learning for embodied intelligence",
             "reusable structure can be distilled from large-scale unlabeled human experience",
-            "real-time deployment across embodiments",
-            "test time",
+            "Looking ahead, I hope to advance embodied intelligence toward a broad range of real-world manipulation tasks through three directions:",
+            'class="homepage-about-goals"',
+            "<strong>Better representations.</strong>",
+            "<strong>Real-time deployment.</strong>",
+            "<strong>Test-time improvement.</strong>",
             "embodied world models",
             "visual grounding for GUI agents",
             'href="https://jiataogu.me/">Prof. Jiatao Gu</a>',
@@ -115,6 +119,8 @@ class HomepageContractTest(unittest.TestCase):
             "ElvisJiang",
         ):
             self.assertIn(value, homepage)
+        self.assertNotIn("Earlier, I worked on", homepage)
+        self.assertIn("Previously, I worked on", homepage)
         self.assertIn('aria-label="Email"', homepage)
         self.assertIn('aria-label="GitHub"', homepage)
         self.assertEqual(homepage.count('<svg viewBox="0 0 24 24"'), 3)
@@ -142,12 +148,33 @@ class HomepageContractTest(unittest.TestCase):
         homepage = HOMEPAGE_INCLUDE.read_text(encoding="utf-8")
         for value in (
             'CS Undergrad at <a href="http://en.xjtu.edu.cn/">Xi\'an Jiaotong University</a>',
-            'Research Intern at <a href="https://jiataogu.me/team/">UPenn GMLR</a>',
+            'Research Intern at <a href="https://jiataogu.me/team/">UPenn GMLR Lab</a>',
             'Prev Intern at <a href="https://ai.princeton.edu/">Princeton AI2 Lab</a>',
         ):
             self.assertIn(value, homepage)
         self.assertNotIn("Computer Science undergraduate", homepage)
         self.assertNotIn("Xi'an, China", homepage)
+
+    def test_homepage_uses_dark_mode_animated_codex_pet_badge(self):
+        homepage = HOMEPAGE_INCLUDE.read_text(encoding="utf-8")
+        styles = HOMEPAGE_STYLES.read_text(encoding="utf-8")
+        self.assertTrue(CODEX_PET_ASSET.exists())
+        for value in (
+            'class="homepage-profile__avatar"',
+            'class="homepage-profile__pet"',
+            "'/images/codex-pet-idle.webp' | relative_url",
+            'alt=""',
+            'aria-hidden="true"',
+            'html[data-theme="dark"] .homepage-profile__pet',
+            "width: 4.5rem;",
+            "height: 4.875rem;",
+            "width: 4rem;",
+            "height: 4.35rem;",
+            "animation:",
+            "@keyframes homepage-pet-idle",
+        ):
+            self.assertIn(value, homepage + styles)
+        self.assertNotIn("homepage-profile__role-icon", homepage)
 
     def test_homepage_contains_only_approved_news(self):
         homepage = ABOUT + HOMEPAGE_INCLUDE.read_text(encoding="utf-8")

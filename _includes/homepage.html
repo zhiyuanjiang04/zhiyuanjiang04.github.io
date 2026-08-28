@@ -2,11 +2,14 @@
 
 <div class="homepage-shell">
   <aside class="homepage-profile" aria-label="Profile">
-    <img class="homepage-profile__photo" src="{{ '/images/profile.png' | relative_url }}" alt="Zhiyuan Jiang" fetchpriority="high">
+    <div class="homepage-profile__avatar">
+      <img class="homepage-profile__photo" src="{{ '/images/profile.png' | relative_url }}" alt="Zhiyuan Jiang" fetchpriority="high">
+      <img class="homepage-profile__pet" src="{{ '/images/codex-pet-idle.webp' | relative_url }}" alt="" aria-hidden="true">
+    </div>
 
     <h1 class="homepage-profile__name">Zhiyuan (Elvis) Jiang</h1>
     <p class="homepage-profile__role">CS Undergrad at <a href="http://en.xjtu.edu.cn/">Xi'an Jiaotong University</a></p>
-    <p class="homepage-profile__role">Research Intern at <a href="https://jiataogu.me/team/">UPenn GMLR</a></p>
+    <p class="homepage-profile__role">Research Intern at <a href="https://jiataogu.me/team/">UPenn GMLR Lab</a></p>
     <p class="homepage-profile__role">Prev Intern at <a href="https://ai.princeton.edu/">Princeton AI2 Lab</a></p>
 
     <nav class="homepage-profile__links" aria-label="Profile links">
@@ -27,8 +30,13 @@
       <h2 id="about-heading">About Me</h2>
       <p>Hi there! 👋 This is Zhiyuan Jiang (江知远), a rising senior student at <a href="http://en.xjtu.edu.cn/">Xi'an Jiaotong University</a>, majoring in Computer Science and Technology.</p>
       <p>I am currently interested in representation learning for embodied intelligence. My research asks how reusable structure can be distilled from large-scale unlabeled human experience, and how such representations can support world modeling, manipulation, and transfer across embodiments.</p>
-      <p>Looking ahead, I hope to develop better representations, enable real-time deployment across embodiments, and improve agents at test time, ultimately applying these capabilities to a broad range of manipulation tasks.</p>
-      <p>Earlier, I worked on embodied world models, their evaluation, and visual grounding for GUI agents. Across these projects, my interests have centered on how agents acquire, evaluate, and use transferable structure to perceive and act in unfamiliar environments.</p>
+      <p>Looking ahead, I hope to advance embodied intelligence toward a broad range of real-world manipulation tasks through three directions:</p>
+      <ul class="homepage-about-goals">
+        <li><strong>Better representations.</strong> Capture reusable structure from experience.</li>
+        <li><strong>Real-time deployment.</strong> Enable deployment across different embodiments.</li>
+        <li><strong>Test-time improvement.</strong> Make agents more capable and adaptable at test time.</li>
+      </ul>
+      <p>Previously, I worked on embodied world models, their evaluation, and visual grounding for GUI agents. Across these projects, my interests have centered on how agents acquire, evaluate, and use transferable structure to perceive and act in unfamiliar environments.</p>
       <p>I am fortunate to learn from and work with <a href="https://jiataogu.me/">Prof. Jiatao Gu</a> and <a href="https://lsl.zone/">Dr. Shilong Liu</a>.</p>
       <p>I am always open to conversations and learning from others. Feel free to reach out! You can also find me on WeChat: <code>ElvisJiang</code>.</p>
     </section>
