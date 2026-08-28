@@ -38,17 +38,18 @@ The design combines:
 
 ## Information architecture
 
-1. **Top navigation:** keep a minimal set of academic destinations, with the homepage as the visual entry point. Existing site destinations remain available but should not compete with the profile header.
-2. **Profile header:** show name, current academic/research roles, portrait, location/affiliation, and a short row of links. The profile copy remains left aligned inside a centered page container.
+1. **Top navigation:** keep exactly the current three destinations: `Publications`, `Projects`, and `CV`. Do not add a blog, portfolio, teaching, or general achievements item in this iteration.
+2. **Profile header:** show name, current academic/research roles, portrait, location/affiliation, and exactly three compact links: `Email`, `GitHub`, and `CV`. The profile copy remains left aligned inside a centered page container. The `CV` link initially targets the existing `/cv/` route and can later be changed to the final resume PDF.
 3. **Research statement:** one concise paragraph distilled from the existing homepage copy, covering autonomous agents, world models, GUI agents, and compositional generalization.
-4. **Selected publications:** show the three existing publications as compact image-and-text rows. Each row includes the existing title, author information, year, and only links already present in the repository.
-5. **Research news:** keep only research-relevant milestones already stated in the current homepage, in a compact list below the selected publications.
-6. **CV entry:** include a single academic CV link in the profile links. The first local version may point to the existing `/cv/` route; once the resume PDF is finalized it can be changed to `/files/cv.pdf` without changing the homepage structure.
+4. **Selected publications:** show the three existing publications as compact image-and-text rows. Keep the existing three-paper set: `ZoomClick`, `WoW`, and `Wow, wo, val!`. Each row includes the existing title, author information, year, and only verified links. Use the following project links: `WoW` → `https://wow-world-model.github.io`, `ZoomClick` → `https://princeton-ai2-lab.github.io/ZoomClick`; retain the existing paper link for `Wow, wo, val!` unless a new project link is supplied.
+5. **Recent work:** add a fourth research row for `Demystifying Agent Skills: Why They Work - Until They Don't`, linked to `https://zhiyuanjiang04.github.io/demystify-agent-skills`. Use the title/authors and description already present in the repository's project page or README; do not invent a venue or publication status.
+6. **Research news:** keep only these three research-relevant items, in reverse chronological order: `Dec 2025` — ZoomClick released; `Sep 2025` — WoW released; `Sep 2025` — started research internship at Princeton AI2 Lab. Omit the Berkeley exchange item from the homepage.
 
 ## Content rules
 
-- Treat `_config.yml`, `_pages/about.md`, `_publications/`, and the existing `files/`/`images/` assets as the authoritative content sources.
-- Preserve exact paper titles, author formatting, dates, affiliations, and external URLs unless the source repository already contains an updated value.
+- Treat `_config.yml` as authoritative for identity, current roles, and profile links; `_publications/*.md` as authoritative for existing paper titles, author formatting, dates, abstracts, and paper URLs; `_pages/about.md` as authoritative for research-prose wording; and the existing `files/`/`images/` assets as the authoritative local visual assets.
+- When a project URL is explicitly supplied by the user, it overrides an older or missing project URL in the source repository. The three user-supplied project URLs above are therefore authoritative for the homepage links.
+- Preserve exact paper titles, author formatting, dates, affiliations, and external URLs unless one of the above sources or the user's explicit links provides an updated value.
 - Use short descriptive prose only when it is a direct condensation of existing homepage text; do not introduce new achievements or unsupported claims.
 - Keep research content before news and keep news before any low-priority navigation or footer content.
 
@@ -58,9 +59,9 @@ The design combines:
 - Main text: dark neutral gray; secondary text: muted gray.
 - Links: one restrained academic blue, with hover underline or a subtle opacity change.
 - Typography: retain the theme's existing readable sans-serif stack; do not introduce a novelty display font.
-- Container: centered, with a comfortable maximum width and generous but controlled whitespace.
-- Profile: a narrow portrait/profile column paired with a wider content column on desktop; stack naturally on mobile.
-- Publication rows: subtle separators, consistent thumbnail dimensions, readable title sizing, and no heavy cards or gradients.
+- Container: centered, with a comfortable maximum width of approximately 1,080–1,160px on a 1,280px desktop viewport and generous but controlled whitespace.
+- Profile: a narrow portrait/profile column of approximately 220–260px paired with a wider content column of approximately 680–760px on desktop; stack naturally below 768px.
+- Publication rows: subtle separators, consistent thumbnails of approximately 150–180px wide, readable title sizing, and no heavy cards or gradients.
 - Headings: concise, bold, left aligned within the centered content block.
 - Interaction: simple hover emphasis on links and publication rows only; no auto-playing or attention-seeking animation.
 
@@ -78,10 +79,10 @@ Expected implementation files:
 ## Acceptance criteria
 
 - Homepage renders on the existing Jekyll stack without introducing a new runtime dependency.
-- At desktop width, the profile and content columns align cleanly inside one centered container.
-- At mobile width, the profile column stacks above the research content without horizontal overflow.
+- At a 1,280px desktop viewport, the profile and content columns align cleanly inside one centered container with no unexpected large empty column.
+- At a viewport below 768px, the profile column stacks above the research content without horizontal overflow.
 - The homepage contains no grades, score statistics, course-performance content, or unrelated personal sections.
-- The profile identity, affiliations, links, research statement, and publication metadata match the repository source.
+- The profile identity, affiliations, visible link set, research statement, three existing publications, and one recent-work row match the repository source plus the user's three supplied project URLs.
 - Selected publications are visually more prominent than news and secondary navigation.
 - Paragraph text remains left aligned; only the overall content block is centered by the layout.
 - Existing publication detail pages and the `/cv/` route still resolve.
