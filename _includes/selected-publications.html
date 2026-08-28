@@ -1,0 +1,90 @@
+{% if include.directory %}
+  <div class="publications-directory" data-publications-directory>
+    <div class="publication-filter-grid" role="group" aria-label="Filter publications by research area">
+      <button class="publication-filter publication-filter--embodied" type="button" data-publication-filter="embodied-ai" aria-pressed="false">Embodied AI</button>
+      <button class="publication-filter publication-filter--agents" type="button" data-publication-filter="ai-agents" aria-pressed="false">AI Agents</button>
+      <button class="publication-filter publication-filter--gui" type="button" data-publication-filter="gui-agents" aria-pressed="false">GUI Agents</button>
+    </div>
+{% endif %}
+
+<section class="homepage-section homepage-section--works" {% if include.heading != false %}aria-labelledby="works-heading"{% else %}aria-label="Publications list"{% endif %}>
+  {% if include.heading != false %}
+    <h2 id="works-heading">Selected Publications</h2>
+  {% endif %}
+
+  <div class="homepage-work-list" {% if include.directory %}data-publication-list{% endif %}>
+    <article class="homepage-work-row homepage-work-row--recent" data-publication-domain="ai-agents">
+      <a class="homepage-work-row__media" href="https://zhiyuanjiang04.github.io/demystify-agent-skills" aria-label="Open Demystifying Agent Skills project page">
+        <img src="{{ '/images/experimental_pipeline_combined.png' | relative_url }}" alt="Demystifying Agent Skills experimental pipelines" loading="lazy">
+      </a>
+      <div class="homepage-work-row__body">
+        <h3><a href="https://zhiyuanjiang04.github.io/demystify-agent-skills">Demystifying Agent Skills: Why They Work - Until They Don't</a></h3>
+        <p class="homepage-work-row__meta"><strong>Zhiyuan Jiang</strong>, Fangrui Huang, Hanwen Xing, ..., Yijiang Li · arXiv 2026</p>
+        <p class="homepage-work-row__links"><a href="https://arxiv.org/pdf/2608.14036">Paper</a><a href="https://arxiv.org/abs/2608.14036">arXiv</a><a href="https://zhiyuanjiang04.github.io/demystify-agent-skills">Project</a><a href="https://github.com/zhiyuanjiang04/demystify-agent-skills">GitHub</a></p>
+      </div>
+    </article>
+
+    <article class="homepage-work-row" data-publication-domain="gui-agents">
+      <a class="homepage-work-row__media" href="{{ '/publication/2025-12-05-zoomclick' | relative_url }}" aria-label="Open Zoom in, Click out publication page">
+        <img src="{{ '/images/zoomclick_small.png' | relative_url }}" alt="ZoomClick teaser" loading="lazy">
+      </a>
+      <div class="homepage-work-row__body">
+        <h3><a href="{{ '/publication/2025-12-05-zoomclick' | relative_url }}">Zoom in, Click out: Unlocking and Evaluating the Potential of Zooming for GUI Grounding</a></h3>
+        <p class="homepage-work-row__meta"><strong>Zhiyuan Jiang</strong>, Shenghao Xie, Wenyi Li, ..., Shilong Liu · arXiv 2025</p>
+        <p class="homepage-work-row__links"><a href="https://arxiv.org/pdf/2512.05941">Paper</a><a href="https://arxiv.org/abs/2512.05941">arXiv</a><a href="https://princeton-ai2-lab.github.io/ZoomClick">Project</a><a href="https://github.com/Princeton-AI2-Lab/ZoomClick">GitHub</a></p>
+      </div>
+    </article>
+
+    <article class="homepage-work-row" data-publication-domain="embodied-ai">
+      <a class="homepage-work-row__media" href="{{ '/publication/2026-01-07-wowval' | relative_url }}" aria-label="Open Wow, wo, val! publication page">
+        <img src="{{ '/images/wowval_small.png' | relative_url }}" alt="Wow, wo, val! teaser" loading="lazy">
+      </a>
+      <div class="homepage-work-row__body">
+        <h3><a href="{{ '/publication/2026-01-07-wowval' | relative_url }}">Wow, wo, val! A Comprehensive Embodied World Model Evaluation Turing Test</a></h3>
+        <p class="homepage-work-row__meta">Chun-Kai Fan*, ..., <strong>Zhiyuan Jiang</strong>, ... et al. · arXiv 2026</p>
+        <p class="homepage-work-row__links"><a href="https://arxiv.org/pdf/2601.04137">Paper</a><a href="https://arxiv.org/abs/2601.04137">arXiv</a></p>
+      </div>
+    </article>
+
+    <article class="homepage-work-row" data-publication-domain="embodied-ai">
+      <a class="homepage-work-row__media" href="{{ '/publication/2025-09-26-wow' | relative_url }}" aria-label="Open WoW publication page">
+        <img src="{{ '/images/wow_small.png' | relative_url }}" alt="WoW teaser" loading="lazy">
+      </a>
+      <div class="homepage-work-row__body">
+        <h3><a href="{{ '/publication/2025-09-26-wow' | relative_url }}">WoW: Towards a World omniscient World model Through Embodied Interaction</a></h3>
+        <p class="homepage-work-row__meta">Xiaowei Chi*, Peidong Jia*, Chun-Kai Fan*, ..., <strong>Zhiyuan Jiang</strong>, ... et al. · arXiv 2025</p>
+        <p class="homepage-work-row__links"><a href="https://arxiv.org/pdf/2509.22642">Paper</a><a href="https://arxiv.org/abs/2509.22642">arXiv</a><a href="https://wow-world-model.github.io">Project</a><a href="https://github.com/wow-world-model/wow-world-model">GitHub</a></p>
+      </div>
+    </article>
+  </div>
+
+  {% if include.show_more != false %}
+    <p class="homepage-section__more"><a href="{{ '/publications/' | relative_url }}">View all publications <span aria-hidden="true">→</span></a></p>
+  {% endif %}
+</section>
+
+{% if include.directory %}
+  </div>
+  <script>
+    (() => {
+      const directory = document.querySelector('[data-publications-directory]');
+      if (!directory) return;
+
+      const buttons = directory.querySelectorAll('[data-publication-filter]');
+      const rows = directory.querySelectorAll('[data-publication-domain]');
+
+      const applyFilter = (filter) => {
+        buttons.forEach((button) => {
+          button.setAttribute('aria-pressed', String(button.dataset.publicationFilter === filter));
+        });
+        rows.forEach((row) => {
+          row.hidden = row.dataset.publicationDomain !== filter;
+        });
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => applyFilter(button.dataset.publicationFilter));
+      });
+    })();
+  </script>
+{% endif %}
