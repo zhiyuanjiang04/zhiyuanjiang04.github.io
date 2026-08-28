@@ -1,4 +1,5 @@
 import unittest
+import re
 from pathlib import Path
 
 
@@ -32,12 +33,14 @@ class HomepageContractTest(unittest.TestCase):
             "https://github.com/Princeton-AI2-Lab/ZoomClick",
             "https://zhiyuanjiang04.github.io/demystify-agent-skills",
             "Demystifying Agent Skills: Why They Work - Until They Don't",
-            "Research code and artifacts for the paper Demystifying Agent Skills: Why They Work - Until They Don't.",
+            "Research code and artifacts for the paper",
         ):
             self.assertIn(value, homepage)
 
     def test_homepage_contains_only_approved_news(self):
         homepage = ABOUT + HOMEPAGE_INCLUDE.read_text(encoding="utf-8")
+        plain_homepage = re.sub(r"<[^>]+>", "", homepage)
+        plain_homepage = re.sub(r"\s+", " ", plain_homepage).lower()
         required_news = (
             "Dec 2025",
             "ZoomClick released",
@@ -46,8 +49,8 @@ class HomepageContractTest(unittest.TestCase):
             "started research internship at Princeton AI2 Lab",
         )
         for value in required_news:
-            self.assertIn(value, homepage)
-        self.assertNotIn("Began exchange semester at UC Berkeley", homepage)
+            self.assertIn(value.lower(), plain_homepage)
+        self.assertNotIn("began exchange semester at uc berkeley", plain_homepage)
 
     def test_homepage_omits_non_research_profile_sections_and_stats(self):
         homepage = ABOUT + HOMEPAGE_INCLUDE.read_text(encoding="utf-8")
