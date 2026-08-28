@@ -52,8 +52,8 @@ class HomepageContractTest(unittest.TestCase):
     def test_publications_use_short_author_metadata_and_first_author_order(self):
         publications = PUBLICATIONS_INCLUDE.read_text(encoding="utf-8")
         self.assertIn(
-            '<p class="homepage-work-row__meta"><strong>Zhiyuan Jiang</strong>, '
-            "Fangrui Huang, Hanwen Xing, ..., Yijiang Li · arXiv 2026</p>",
+            '<p class="homepage-work-row__meta"><strong>Zhiyuan Jiang<sup>*</sup></strong>, '
+            "Fangrui Huang<sup>*</sup>, Hanwen Xing, ..., Yijiang Li · arXiv 2026</p>",
             publications,
         )
         self.assertNotIn("Research code and artifacts for the paper", publications)
@@ -88,9 +88,49 @@ class HomepageContractTest(unittest.TestCase):
 
     def test_homepage_profile_links_include_google_scholar(self):
         homepage = HOMEPAGE_INCLUDE.read_text(encoding="utf-8")
+        self.assertIn('aria-label="Google Scholar"', homepage)
+        self.assertIn('href="https://scholar.google.com/citations?user=GPOFX7QAAAAJ&hl=en"', homepage)
+        self.assertIn('<svg viewBox="0 0 24 24"', homepage)
+
+    def test_homepage_about_me_content_and_icon_links(self):
+        homepage = HOMEPAGE_INCLUDE.read_text(encoding="utf-8")
+        styles = HOMEPAGE_STYLES.read_text(encoding="utf-8")
+        self.assertIn('aria-labelledby="about-heading"', homepage)
+        self.assertIn("p + p", styles)
+        self.assertIn("margin-top: 1.15rem;", styles)
+        for value in (
+            "About Me",
+            "Hi there! 👋",
+            "Zhiyuan Jiang (江知远)",
+            'href="http://en.xjtu.edu.cn/">Xi\'an Jiaotong University</a>',
+            "representation learning for embodied intelligence",
+            "reusable structure can be distilled from large-scale unlabeled human experience",
+            "real-time deployment across embodiments",
+            "test time",
+            "embodied world models",
+            "visual grounding for GUI agents",
+            'href="https://jiataogu.me/">Prof. Jiatao Gu</a>',
+            'href="https://lsl.zone/">Dr. Shilong Liu</a>',
+            "Feel free to reach out!",
+            "ElvisJiang",
+        ):
+            self.assertIn(value, homepage)
+        self.assertIn('aria-label="Email"', homepage)
+        self.assertIn('aria-label="GitHub"', homepage)
+        self.assertEqual(homepage.count('<svg viewBox="0 0 24 24"'), 3)
+        self.assertNotIn(">Email</a>", homepage)
+        self.assertNotIn(">GitHub</a>", homepage)
+        self.assertNotIn(">Google Scholar</a>", homepage)
+
+    def test_top_publications_mark_co_first_authors(self):
+        publications = PUBLICATIONS_INCLUDE.read_text(encoding="utf-8")
         self.assertIn(
-            '<a href="https://scholar.google.com/citations?user=GPOFX7QAAAAJ&hl=en">Google Scholar</a>',
-            homepage,
+            "<strong>Zhiyuan Jiang<sup>*</sup></strong>, Fangrui Huang<sup>*</sup>",
+            publications,
+        )
+        self.assertIn(
+            "<strong>Zhiyuan Jiang<sup>*</sup></strong>, Shenghao Xie<sup>*</sup>",
+            publications,
         )
 
     def test_cv_page_and_homepage_cv_link_are_removed(self):
