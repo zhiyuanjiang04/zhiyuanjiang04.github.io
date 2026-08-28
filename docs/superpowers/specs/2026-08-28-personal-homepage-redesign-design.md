@@ -46,13 +46,13 @@ The design combines:
    - `ZoomClick`: `Paper` → `https://arxiv.org/abs/2512.05941`; `Project` → `https://princeton-ai2-lab.github.io/ZoomClick`; `Code` → `https://github.com/Princeton-AI2-Lab/ZoomClick`.
    - `Wow, wo, val!`: `Paper` → `https://arxiv.org/abs/2601.04137`; no project link unless one is supplied later.
 5. **Recent work:** add a fourth research row for `Demystifying Agent Skills: Why They Work - Until They Don't`, linked as `Project` to `https://zhiyuanjiang04.github.io/demystify-agent-skills`. Use the exact title and any short description from the current `README.md` of `https://github.com/zhiyuanjiang04/demystify-agent-skills`; until that content is imported locally, do not add extra author, venue, or publication-status claims.
-6. **Research news:** keep only these three research-relevant items, in this exact order: `Dec 2025` — ZoomClick released; `Sep 2025` — WoW released; `Sep 2025` — started research internship at Princeton AI2 Lab. Omit the Berkeley exchange item from the homepage.
+6. **Research news:** include exactly these three research-relevant items, in this exact order: `Dec 2025` — ZoomClick released; `Sep 2025` — WoW released; `Sep 2025` — started research internship at Princeton AI2 Lab. Omit the Berkeley exchange item from the homepage.
 
 ## Content rules
 
 - Treat `_config.yml` as authoritative for identity, current roles, and profile links; `_publications/*.md` as authoritative for existing paper titles, author formatting, dates, abstracts, and paper URLs; `_pages/about.md` as authoritative for research-prose wording; and the existing `files/`/`images/` assets as the authoritative local visual assets.
 - When a project URL is explicitly supplied by the user, it is authoritative for the `Project` link and supplements, rather than replaces, an existing `Paper` link. The three user-supplied project URLs above are therefore authoritative for the homepage project links.
-- For the recent-work row, the public project page and the repository `README.md` at `zhiyuanjiang04/demystify-agent-skills` are authoritative; if they differ, use the exact project-page title/link and omit any conflicting prose until the user resolves it.
+- For the recent-work row, use this frozen content from the user-supplied project and its current repository README: title `Demystifying Agent Skills: Why They Work - Until They Don't`; description `Research code and artifacts for the paper Demystifying Agent Skills: Why They Work - Until They Don't.`; `Project` link → `https://zhiyuanjiang04.github.io/demystify-agent-skills`. Do not add authors, venue, date, or publication-status claims in this iteration.
 - Preserve exact paper titles, author formatting, dates, affiliations, and external URLs unless one of the above sources or the user's explicit links provides an updated value.
 - Use short descriptive prose only when it is a direct condensation of existing homepage text; do not introduce new achievements or unsupported claims.
 - Keep research content before news and keep news before any low-priority navigation or footer content.
@@ -63,10 +63,10 @@ The design combines:
 - Main text: dark neutral gray; secondary text: muted gray.
 - Links: one restrained academic blue, with hover underline or a subtle opacity change.
 - Typography: retain the theme's existing readable sans-serif stack; do not introduce a novelty display font.
-- Container: centered at exactly `max-width: 1,080px` on a 1,280px desktop viewport, with side padding of 24px.
-- Profile: a fixed `240px` profile column paired with a flexible content column, using `grid-template-columns: 240px minmax(0, 1fr)` and a `56px` column gap on desktop. Stack naturally below 768px.
+- Container: centered at exactly `width: min(1080px, 100%)`, with `box-sizing: border-box` and 24px left/right padding included inside the 1,080px outer box on a 1,280px desktop viewport.
+- Profile: a fixed `240px` profile column paired with a flexible content column, using `grid-template-columns: 240px minmax(0, 1fr)` and a `56px` column gap on desktop widths `>= 768px`. At widths `<= 767px`, switch to one column and make the profile width 100%.
 - Publication rows: subtle separators, consistent `156px` thumbnails on desktop, readable title sizing, and no heavy cards or gradients.
-- Mobile publication rows: below 768px use `grid-template-columns: 88px minmax(0, 1fr)`, keep thumbnails at `88px` maximum width, and allow titles to wrap normally without horizontal overflow.
+- Mobile publication rows: at widths `<= 767px` use `grid-template-columns: 88px minmax(0, 1fr)`, keep thumbnails at `88px` maximum width, and allow titles to wrap normally without horizontal overflow.
 - Headings: concise, bold, left aligned within the centered content block.
 - Interaction: simple hover emphasis on links and publication rows only; no auto-playing or attention-seeking animation.
 
@@ -84,10 +84,11 @@ Expected implementation files:
 ## Acceptance criteria
 
 - Homepage renders on the existing Jekyll stack without introducing a new runtime dependency.
-- At a 1,280px desktop viewport, the layout uses a 1,080px centered container, a 240px profile column, a 56px gap, and a flexible content column with no unexpected large empty column.
-- At a viewport below 768px, the profile column stacks above the research content and publication rows use an 88px thumbnail column without horizontal overflow.
+- At a 1,280px desktop viewport, the layout uses a 1,080px border-box container, a 240px profile column, a 56px gap, and a flexible content column with no unexpected large empty column.
+- At widths `<= 767px`, the profile becomes full width, stacks above the research content, and publication rows use an 88px thumbnail column without horizontal overflow.
 - The homepage contains no grades, score statistics, course-performance content, or unrelated personal sections.
 - The profile identity, affiliations, visible link set, research statement, three existing publications, and one recent-work row match the repository source plus the user's three supplied project URLs.
+- The homepage contains all three required research-news items in the specified order.
 - Selected publications are visually more prominent than news and secondary navigation.
 - Paragraph text remains left aligned; only the overall content block is centered by the layout.
 - Existing publication detail pages and the `/cv/` route still resolve.
