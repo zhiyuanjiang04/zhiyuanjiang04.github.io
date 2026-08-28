@@ -41,14 +41,18 @@ The design combines:
 1. **Top navigation:** keep exactly the current three destinations: `Publications`, `Projects`, and `CV`. Do not add a blog, portfolio, teaching, or general achievements item in this iteration.
 2. **Profile header:** show name, current academic/research roles, portrait, location/affiliation, and exactly three compact links: `Email`, `GitHub`, and `CV`. The profile copy remains left aligned inside a centered page container. The `CV` link initially targets the existing `/cv/` route and can later be changed to the final resume PDF.
 3. **Research statement:** one concise paragraph distilled from the existing homepage copy, covering autonomous agents, world models, GUI agents, and compositional generalization.
-4. **Selected publications:** show the three existing publications as compact image-and-text rows. Keep the existing three-paper set: `ZoomClick`, `WoW`, and `Wow, wo, val!`. Each row includes the existing title, author information, year, and only verified links. Use the following project links: `WoW` → `https://wow-world-model.github.io`, `ZoomClick` → `https://princeton-ai2-lab.github.io/ZoomClick`; retain the existing paper link for `Wow, wo, val!` unless a new project link is supplied.
-5. **Recent work:** add a fourth research row for `Demystifying Agent Skills: Why They Work - Until They Don't`, linked to `https://zhiyuanjiang04.github.io/demystify-agent-skills`. Use the title/authors and description already present in the repository's project page or README; do not invent a venue or publication status.
-6. **Research news:** keep only these three research-relevant items, in reverse chronological order: `Dec 2025` — ZoomClick released; `Sep 2025` — WoW released; `Sep 2025` — started research internship at Princeton AI2 Lab. Omit the Berkeley exchange item from the homepage.
+4. **Selected publications:** show the three existing publications as compact image-and-text rows. Keep the existing three-paper set: `ZoomClick`, `WoW`, and `Wow, wo, val!`. Existing paper links remain visible as `Paper`; user-supplied project links are added as separate `Project` links rather than replacing paper links. Use this exact link matrix:
+   - `WoW`: `Paper` → `https://arxiv.org/abs/2509.22642`; `Project` → `https://wow-world-model.github.io`.
+   - `ZoomClick`: `Paper` → `https://arxiv.org/abs/2512.05941`; `Project` → `https://princeton-ai2-lab.github.io/ZoomClick`; `Code` → `https://github.com/Princeton-AI2-Lab/ZoomClick`.
+   - `Wow, wo, val!`: `Paper` → `https://arxiv.org/abs/2601.04137`; no project link unless one is supplied later.
+5. **Recent work:** add a fourth research row for `Demystifying Agent Skills: Why They Work - Until They Don't`, linked as `Project` to `https://zhiyuanjiang04.github.io/demystify-agent-skills`. Use the exact title and any short description from the current `README.md` of `https://github.com/zhiyuanjiang04/demystify-agent-skills`; until that content is imported locally, do not add extra author, venue, or publication-status claims.
+6. **Research news:** keep only these three research-relevant items, in this exact order: `Dec 2025` — ZoomClick released; `Sep 2025` — WoW released; `Sep 2025` — started research internship at Princeton AI2 Lab. Omit the Berkeley exchange item from the homepage.
 
 ## Content rules
 
 - Treat `_config.yml` as authoritative for identity, current roles, and profile links; `_publications/*.md` as authoritative for existing paper titles, author formatting, dates, abstracts, and paper URLs; `_pages/about.md` as authoritative for research-prose wording; and the existing `files/`/`images/` assets as the authoritative local visual assets.
-- When a project URL is explicitly supplied by the user, it overrides an older or missing project URL in the source repository. The three user-supplied project URLs above are therefore authoritative for the homepage links.
+- When a project URL is explicitly supplied by the user, it is authoritative for the `Project` link and supplements, rather than replaces, an existing `Paper` link. The three user-supplied project URLs above are therefore authoritative for the homepage project links.
+- For the recent-work row, the public project page and the repository `README.md` at `zhiyuanjiang04/demystify-agent-skills` are authoritative; if they differ, use the exact project-page title/link and omit any conflicting prose until the user resolves it.
 - Preserve exact paper titles, author formatting, dates, affiliations, and external URLs unless one of the above sources or the user's explicit links provides an updated value.
 - Use short descriptive prose only when it is a direct condensation of existing homepage text; do not introduce new achievements or unsupported claims.
 - Keep research content before news and keep news before any low-priority navigation or footer content.
@@ -59,9 +63,10 @@ The design combines:
 - Main text: dark neutral gray; secondary text: muted gray.
 - Links: one restrained academic blue, with hover underline or a subtle opacity change.
 - Typography: retain the theme's existing readable sans-serif stack; do not introduce a novelty display font.
-- Container: centered, with a comfortable maximum width of approximately 1,080–1,160px on a 1,280px desktop viewport and generous but controlled whitespace.
-- Profile: a narrow portrait/profile column of approximately 220–260px paired with a wider content column of approximately 680–760px on desktop; stack naturally below 768px.
-- Publication rows: subtle separators, consistent thumbnails of approximately 150–180px wide, readable title sizing, and no heavy cards or gradients.
+- Container: centered at exactly `max-width: 1,080px` on a 1,280px desktop viewport, with side padding of 24px.
+- Profile: a fixed `240px` profile column paired with a flexible content column, using `grid-template-columns: 240px minmax(0, 1fr)` and a `56px` column gap on desktop. Stack naturally below 768px.
+- Publication rows: subtle separators, consistent `156px` thumbnails on desktop, readable title sizing, and no heavy cards or gradients.
+- Mobile publication rows: below 768px use `grid-template-columns: 88px minmax(0, 1fr)`, keep thumbnails at `88px` maximum width, and allow titles to wrap normally without horizontal overflow.
 - Headings: concise, bold, left aligned within the centered content block.
 - Interaction: simple hover emphasis on links and publication rows only; no auto-playing or attention-seeking animation.
 
@@ -79,8 +84,8 @@ Expected implementation files:
 ## Acceptance criteria
 
 - Homepage renders on the existing Jekyll stack without introducing a new runtime dependency.
-- At a 1,280px desktop viewport, the profile and content columns align cleanly inside one centered container with no unexpected large empty column.
-- At a viewport below 768px, the profile column stacks above the research content without horizontal overflow.
+- At a 1,280px desktop viewport, the layout uses a 1,080px centered container, a 240px profile column, a 56px gap, and a flexible content column with no unexpected large empty column.
+- At a viewport below 768px, the profile column stacks above the research content and publication rows use an 88px thumbnail column without horizontal overflow.
 - The homepage contains no grades, score statistics, course-performance content, or unrelated personal sections.
 - The profile identity, affiliations, visible link set, research statement, three existing publications, and one recent-work row match the repository source plus the user's three supplied project URLs.
 - Selected publications are visually more prominent than news and secondary navigation.
