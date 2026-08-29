@@ -146,6 +146,102 @@
       outline-offset: 3px;
     }
   }
+
+  &__visitors {
+    width: 176px;
+    margin-top: 0.9rem;
+    overflow: hidden;
+    border: 1px solid var(--global-border-color);
+    border-radius: 0.55rem;
+    background: var(--global-bg-color);
+    color: var(--global-text-color);
+  }
+
+  &__visitors-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.45rem;
+    min-height: 2.15rem;
+    padding: 0.45rem 0.6rem;
+    color: var(--global-text-color);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.2;
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: "⌄";
+      color: var(--global-text-color-light);
+      font-size: 0.82rem;
+      transition: transform 0.18s ease;
+    }
+  }
+
+  &__visitors[open] &__visitors-summary::after {
+    transform: rotate(180deg);
+  }
+
+  &__visitors-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+
+    svg {
+      width: 0.9rem;
+      height: 0.9rem;
+      fill: currentColor;
+    }
+  }
+
+  &__visitors-count {
+    color: var(--global-text-color-light);
+    font-size: 0.64rem;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  &__visitors-map {
+    display: block;
+    overflow: hidden;
+    border-top: 1px solid var(--global-border-color);
+    background: #fff;
+    padding: 0.35rem 0.35rem 0;
+    font-size: 0;
+    line-height: 0;
+
+    > *:not(script) {
+      max-width: 100%;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0;
+    }
+  }
+
+  &__visitors-details {
+    display: block;
+    margin-top: 0.35rem;
+    padding: 0.4rem 0 0.45rem;
+    border-top: 1px solid var(--global-border-color);
+    color: var(--global-text-color-light);
+    font-size: 0.62rem;
+    line-height: 1.2;
+    text-align: center;
+
+    &:hover {
+      color: var(--global-link-color);
+      text-decoration: none !important;
+    }
+  }
 }
 
 html[data-theme="dark"] .homepage-profile__pet {
@@ -384,6 +480,10 @@ html[data-theme="dark"] .homepage-profile__pet {
       right: -0.45rem;
       width: 4rem;
       height: 4.35rem;
+    }
+
+    &__visitors {
+      width: 176px;
     }
   }
 

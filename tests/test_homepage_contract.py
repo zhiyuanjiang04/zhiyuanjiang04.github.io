@@ -123,7 +123,7 @@ class HomepageContractTest(unittest.TestCase):
         self.assertIn("Previously, I worked on", homepage)
         self.assertIn('aria-label="Email"', homepage)
         self.assertIn('aria-label="GitHub"', homepage)
-        self.assertEqual(homepage.count('<svg viewBox="0 0 24 24"'), 3)
+        self.assertEqual(homepage.count('class="homepage-profile__icon-link"'), 3)
         self.assertNotIn(">Email</a>", homepage)
         self.assertNotIn(">GitHub</a>", homepage)
         self.assertNotIn(">Google Scholar</a>", homepage)
@@ -175,6 +175,26 @@ class HomepageContractTest(unittest.TestCase):
         ):
             self.assertIn(value, homepage + styles)
         self.assertNotIn("homepage-profile__role-icon", homepage)
+
+    def test_homepage_has_compact_clickable_visitor_map_card(self):
+        homepage = HOMEPAGE_INCLUDE.read_text(encoding="utf-8")
+        styles = HOMEPAGE_STYLES.read_text(encoding="utf-8")
+        for value in (
+            'class="homepage-profile__visitors"',
+            'class="homepage-profile__visitors-summary"',
+            'class="homepage-profile__visitors-label"',
+            ">Visitors</span>",
+            'class="homepage-profile__visitors-count"',
+            'href="https://mapmyvisitors.com/web/1c7ss"',
+            'id="mapmyvisitors"',
+            'src="https://mapmyvisitors.com/map.js?d=BxFc2wZB26l92jX0--qWDynnBxLtMNgHeYmgYPZFSp8&cl=ffffff&w=a"',
+            'class="homepage-profile__visitors-map"',
+            'class="homepage-profile__visitors-details"',
+            'target="_blank"',
+            'rel="noopener noreferrer"',
+            '&__visitors[open]',
+        ):
+            self.assertIn(value, homepage + styles)
 
     def test_homepage_contains_only_approved_news(self):
         homepage = ABOUT + HOMEPAGE_INCLUDE.read_text(encoding="utf-8")
